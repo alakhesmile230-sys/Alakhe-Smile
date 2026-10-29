@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/mystyle.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquire & Order Cakes | Baked with a Smile Bakery Mossel Bay</title>
+<meta name="description" content="Enquire about Any Cake R1000, Birthday Cake R1500, Wedding Cake R2000, Cupcakes, Donuts, Cookies, Croissants and Bread at Baked with a Smile Bakery in Mossel Bay.">
+<meta name="keywords" content="order cake Mossel Bay, enquiry bakery, birthday cake order, wedding cake quote, Baked with a Smile">
+<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+
+<header class="nav">
+<h2>Baked with a Smile</h2>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="aboutus.html">About Us</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
+<li><a href="contactus.html">Contact Us</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section class="enquiry-hero">
+<h1>Enquire & Order</h1>
+<p>Tell us what you want us to bake for you! Fill in the form and get an instant price estimate.</p>
+</section>
+
+<form id="enquiry-form" novalidate>
+<label for="enquiry-name">Full Name *</label>
+<input type="text" id="enquiry-name" placeholder="e.g. Alakhe Smile" required>
+<span class="error" id="err-name"></span>
+
+<label for="enquiry-email">Email *</label>
+<input type="email" id="enquiry-email" placeholder="you@example.com" required>
+<span class="error" id="err-email"></span>
+
+<label for="enquiry-phone">Phone / WhatsApp *</label>
+<input type="tel" id="enquiry-phone" placeholder="e.g. 0821234567" required>
+<span class="error" id="err-phone"></span>
+
+<label for="enquiry-service">What would you like to order? *</label>
+<select id="enquiry-service" required>
+<option value="">-- Please choose --</option>
+<option value="Any Cake">Any Cake - R1000</option>
+<option value="Birthday Cake">Birthday Cake - R1500</option>
+<option value="Wedding Cake">Wedding Cake - R2000</option>
+<option value="Cupcake">Cupcake - R20 each / 6 for R100</option>
+<option value="Donut">Donut - R20 each / 6 for R100</option>
+<option value="Cookie">Cookie - R10 each / 5 for R45</option>
+<option value="Croissant">Croissant - R25 each / 5 for R100</option>
+<option value="White Loaf">White Loaf - R30</option>
+<option value="Brown Loaf">Brown Loaf - R35</option>
+<option value="Fresh Daily Bread">Fresh Daily Bread - R35</option>
+</select>
+<span class="error" id="err-service"></span>
+
+<label for="enquiry-qty">Quantity *</label>
+<input type="number" id="enquiry-qty" min="1" max="100" value="1" required>
+<span class="error" id="err-qty"></span>
+
+<label for="enquiry-date">Date Needed *</label>
+<input type="date" id="enquiry-date" required>
+<span class="error" id="err-date"></span>
+
+<label for="enquiry-diet">Dietary Needs</label>
+<select id="enquiry-diet">
+<option value="None">None</option>
+<option value="Eggless">Eggless</option>
+<option value="Halaal">Halaal</option>
+<option value="Gluten-Free">Gluten-Free</option>
+<option value="Vegan">Vegan</option>
+</select>
+
+<label for="enquiry-message">Message / Cake Design Details</label>
+<textarea id="enquiry-message" rows="4" placeholder="e.g. Pink birthday cake for 10 people, with name 'Lerato' on top..."></textarea>
+
+<button type="submit">Send Enquiry & Get Price</button>
+<button type="reset">Clear Form</button>
+</form>
+
+<div id="enquiry-result" style="display:none;"></div>
+
+<p style="text-align:center; margin:2rem;">Need it urgently? WhatsApp us on 082 123 4567</p>
+</main>
+
+<footer>
+<p>&copy; <span id="year">2026</span> Baked with a Smile Bakery. All rights reserved.</p>
+<p><a href="index.html">Home</a> | <a href="aboutus.html">About</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="contactus.html">Contact</a></p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
