@@ -2,8 +2,18 @@
 <html>
 <head>
 <title>About Us | Baked with a Smile</title>
-<link rel="stylesheet" href="css/mystyle.css">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Baked with a Smile Bakery in Cape Town - our story, our bakers, and why we bake fresh cakes, cupcakes and bread with love since 2015.">
+<meta name="keywords" content="about Baked with a Smile, bakery Cape Town story, cake bakers Cape Town, family bakery">
+<meta name="author" content="Alakhe ST10538125 - Baked with a Smile Bakery">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Us | Baked with a Smile Bakery in Cape Town - Our Story">
+<meta property="og:description" content="Our story, our bakers, and why we bake fresh cakes and treats with love in Cape Town.">
+<meta property="og:image" content="images/front.jpg">
+<link rel="canonical" href="https://bakedwithasmile.netlify.app/aboutus.html"> 
+<link rel="stylesheet" href="css/mystyle.css"> 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Arial,sans-serif;background:#FFF8E7;color:#5D4037;line-height:1.8;}
@@ -20,20 +30,63 @@ h2{color:#8D6E63;margin-bottom:0.8rem;}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
 .card{background:white;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06);border-top:4px solid palevioletred;}
 @media(max-width:768px){.hero-card,.split{grid-template-columns:1fr;} header{flex-direction:column;gap:1rem;}}
+footer {
+background: #4E342E !important;
+color: white !important;
+text-align: center !important;
+padding: 20px !important;
+margin-top: 2rem !important;
+}
+footer p {
+color: white !important;
+margin: 5px 0 !important;
+} 
+
+.nav {
+display: flex !important;
+flex-direction: row !important;
+align-items: center !important;
+justify-content: space-between !important;
+flex-wrap: wrap !important;
+}
+.nav nav ul {
+display: flex !important;
+flex-direction: row !important;
+gap: 20px !important;
+list-style: none !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+.hamburger {
+display: none !important;
+}
+@media (max-width: 768px) {
+.hamburger { display: block !important; }
+.nav nav ul {
+display: none !important;
+flex-direction: column !important;
+width: 100% !important;
+}
+.nav nav ul.show { display: flex !important; }
+}
+
 </style>
 </head>
 <body>
 
-<header>
+<header class="nav">
 <h2>Baked with a Smile</h2>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
 <nav>
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="aboutus.html">About Us</a></li>
 <li><a href="products.html">Products</a></li>
 <li><a href="gallery.html">Gallery</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
 <li><a href="contactus.html">Contact Us</a></li>
 </ul>
+</nav> 
 </nav>
 </header>
 
@@ -71,9 +124,44 @@ h2{color:#8D6E63;margin-bottom:0.8rem;}
 </div>
 
 </div>
+
+
+<h2 style="text-align:center; margin-top:2rem; color:#5D4037;">Frequently Asked Questions</h2>
+<div style="max-width:700px; margin:0 auto 2rem;">
+<div class="faq-item" style="border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden;">
+<button class="faq-q" style="width:100%; text-align:left; padding:15px; background:#FFF3E0; color:#333; border:none; font-size:1rem; font-weight:bold; cursor:pointer;">Do you make custom birthday cakes? +</button>
+<div class="faq-a" style="display:none; padding:15px; background:white; color:#333;">Yes! Order at least 3 days before your date via our Enquiry page. Choose your flavour, size and theme and we will confirm price and availability within 24 hours.</div>
+</div>
+<div class="faq-item" style="border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden;">
+<button class="faq-q" style="width:100%; text-align:left; padding:15px; background:#FFF3E0; color:#333; border:none; font-size:1rem; font-weight:bold; cursor:pointer;">Do you deliver in Cape Town? +</button>
+<div class="faq-a" style="display:none; padding:15px; background:white; color:#333;">Yes, delivery is R80 in Cape Town City Centre and nearby suburbs. Pickup from 123 Bakery Street is FREE.</div>
+</div>
+<div class="faq-item" style="border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden;">
+<button class="faq-q" style="width:100%; text-align:left; padding:15px; background:#FFF3E0; color:#333; border:none; font-size:1rem; font-weight:bold; cursor:pointer;">Do you have gluten-free or vegan options? +</button>
+<div class="faq-a" style="display:none; padding:15px; background:white; color:#333;">Yes, we bake vegan cupcakes and gluten-free bread on request. Please mention it in your enquiry so we can prepare fresh for you.</div>
+</div>
+<div class="faq-item" style="border:1px solid #ddd; border-radius:8px; margin-bottom:10px; overflow:hidden;">
+<button class="faq-q" style="width:100%; text-align:left; padding:15px; background:#FFF3E0; color:#333; border:none; font-size:1rem; font-weight:bold; cursor:pointer;">How far in advance should I order a wedding cake? +</button>
+<div class="faq-a" style="display:none; padding:15px; background:white; color:#333;">At least 2 weeks before. For large weddings, 1 month is best. Use the Contact form and choose "Catering / Wedding" as your subject.</div>
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+btn.addEventListener('click', function() {
+var ans = btn.nextElementSibling;
+var isOpen = ans.style.display === 'block';
+document.querySelectorAll('.faq-a').forEach(function(a){ a.style.display = 'none'; });
+document.querySelectorAll('.faq-q').forEach(function(b){ b.textContent = b.textContent.replace(' -',' +'); });
+if (!isOpen) { ans.style.display = 'block'; btn.textContent = btn.textContent.replace('+','-'); }
+});
+});
+</script>
 <footer>
     <p>&copy; 2026 Baked with a Smile Bakery. All rights reserved.</p>
-    <p>Freshly baked with love for every occasion.</p>
+    <p>Freshly baked with love for every occasion.</p> 
+
+
 </footer>
 
 

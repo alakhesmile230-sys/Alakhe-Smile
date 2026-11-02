@@ -1,22 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="stylesheet" href="css/mystyle.css">    
+<head>   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baked with a Smile Bakery | Fresh Cakes & Bread in Cape Town</title>
 <meta name="description" content="Baked with a Smile Bakery in Cape Town- fresh cakes, cupcakes, sourdough bread and pastries baked daily. Order custom birthday and wedding cakes.">
 <meta name="keywords" content="bakery Cape Town, birthday cakes Cape Town, wedding cakes, cupcakes, sourdough bread, Baked with a Smile">
 <meta name="author" content="Alakhe ST10538125 - Baked with a Smile Bakery">
-<meta property="og:title" content="Baked with a Smile Bakery | Mossel Bay">
+<meta property="og:title" content="Baked with a Smile Bakery | Cape Town">
 <meta property="og:description" content="Freshly baked cakes, cupcakes and bread in Cape Town. Order online.">
+<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/mystyle.css">
+<meta property="og:image" content="images/weddingcake.jpg">
+<link rel="canonical" href="https://bakedwithasmile.netlify.app/index.html"> 
+<link rel="stylesheet" href="css/mystyle.css"> 
+<style> 
+footer { 
+background: #6D4C41 !important;
+padding: 2rem 1rem !important;
+margin-top: 2rem !important;
+text-align: center !important;
+}
+
+
+footer, footer *, footer p, footer span {
+color: #FFFFFF !important;
+opacity: 1 !important;
+}
+footer a { color: #FFFFFF !important; font-weight: 600 !important; text-decoration: none !important; }
+footer a:hover { color: #FFCCBC !important; text-decoration: underline !important; }
+.faq { max-width: 800px !important; margin: 2rem auto !important; padding: 0 1rem !important; }
+.faq h2 { text-align: center !important; color: #4E342E !important;
+margin:0 !important;
+text-align: left !important;
+.accordion-btn p { 
+color: #4E342E !important;
+margin:0 !important;
+text-align: left !important;} 
+} 
+.accordion-btn {
+width: 100% !important;
+text-align: left !important;
+background: #FFF3E0 !important;
+border: 1px solid #D7CCC8 !important;
+padding: 1rem !important;
+font-size: 1rem !important;
+font-weight: 600 !important;
+cursor: pointer !important;
+margin-top: 0.5rem !important;
+border-radius: 6px !important;
+color: #4E342E !important;
+}
+.accordion-btn:hover { background: #FFE0B2 !important; }
+.accordion-panel {
+background: white !important;
+border: 1px solid #D7CCC8 !important;
+border-top: none !important;
+padding: 1rem !important;
+border-radius: 0 0 6px 6px !important;
+display: none !important;
+}
+.accordion-panel.open { display: block !important; }
+.accordion-panel p {
+color: #4E342E !important;
+margin: 0 !important;
+text-align: left !important;
+}
+.accordion-panel,
+.accordion-panel *,
+.accordion-panel p,
+.accordion-panel div,
+.accordion-panel span {
+color: #4E342E !important;
+opacity: 1 !important;
+visibility: visible !important;
+}
+.accordion-panel {
+background: white !important;
+display: none !important;
+}
+.accordion-panel.open {
+display: block !important;
+} 
+.accordion-panel {
+max-height: 0 !important;
+overflow: hidden !important;
+padding: 0 15px !important;
+background: white !important;
+}
+.accordion-panel.open {
+display: block !important;
+max-height: 500px !important;
+height: auto !important;
+overflow: visible !important;
+padding: 15px !important;
+visibility: visible !important;
+opacity: 1 !important;
+}
+.accordion-panel.open p {
+display: block !important;
+color: #4E342E !important;
+font-size: 16px !important;
+line-height: 1.5 !important;
+margin: 0 !important;
+} 
+.accordion-panel,
+.accordion-panel.open,
+.accordion-panel.open p,
+.accordion-panel p {
+white-space: normal !important;
+overflow: visible !important;
+text-overflow: clip !important;
+word-wrap: break-word !important;
+max-height: none !important;
+height: auto !important;
+}
+.accordion-panel.open {
+display: block !important;
+padding: 15px !important;
+} 
+
+
+.nav {
+display: flex !important;
+flex-direction: row !important;
+align-items: center !important;
+justify-content: space-between !important;
+flex-wrap: wrap !important;
+}
+.nav nav ul {
+display: flex !important;
+flex-direction: row !important;
+gap: 20px !important;
+list-style: none !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+.hamburger {
+display: none !important;
+}
+@media (max-width: 768px) {
+.hamburger { display: block !important; }
+.nav nav ul {
+display: none !important;
+flex-direction: column !important;
+width: 100% !important;
+}
+.nav nav ul.show { display: flex !important; }
+}
+
+</style> 
+
 </head>
 <body> 
 
 <header class="nav">
 <h2>Baked with a Smile</h2>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
 <nav>
 <ul>
 <li><a href="index.html">Home</a></li>
@@ -27,7 +167,7 @@
 <li><a href="contactus.html">Contact Us</a></li>
 </ul>
 </nav> 
-</header>
+</header> 
 
 <main>
 
@@ -55,16 +195,26 @@
 <div id="lightbox"><img id="lightbox-img" src="" alt=""><p id="lightbox-caption"></p></div>
 </section>
 
-<section class="faq">
+<section class="faq"> 
 <h2>FAQs</h2>
+
 <button class="accordion-btn" type="button">How far in advance should I order a custom cake?</button>
-<div class="accordion-panel"><p>Please order at least 3 days in advance for custom cakes, and 2 weeks for wedding cakes.</p></div>
+<div class="accordion-panel"><p style="color:#4E342E !important;">Please order at least 3 days in advance...</p></div>
 
 <button class="accordion-btn" type="button">Do you cater for dietary needs?</button>
-<div class="accordion-panel"><p>Yes! We offer eggless, halaal and gluten-free options on request in the enquiry form.</p></div>
-</section>
+<div class="accordion-panel"><p style="color:#4E342E !important;">Yes! We offer eggless, halaal and gluten-free...</p></div>
 
-</main>
+<button class="accordion-btn" type="button">Do you deliver in Cape Town?</button>
+<div class="accordion-panel"><p style="color:#4E342E !important;">Yes! We deliver across Cape Town...</p></div>
+
+<button class="accordion-btn" type="button">How do I order and pay?</button>
+<div class="accordion-panel"><p style="color:#4E342E !important;">Click Enquire on any product...</p></div>
+
+<button class="accordion-btn" type="button">What are your opening hours?</button>
+<div class="accordion-panel"><p style="color:#4E342E !important;">We are open Monday to Saturday...</p></div>
+
+</section> 
+</main> 
 
 <footer>
 <p>&copy; <span id="year">2026</span> Baked with a Smile Bakery. All rights reserved.</p>
@@ -73,5 +223,13 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+const panel = btn.nextElementSibling;
+panel.classList.toggle('open');
+});
+});
+</script>
 </body>
-</html>
+</html> 

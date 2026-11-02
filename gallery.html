@@ -1,41 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Gallery | Baked with a Smile</title>
-<link rel="stylesheet" href="css/mystyle.css">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cake Gallery | Baked with a Smile Bakery in Cape Town</title>
+<meta name="description" content="View our gallery of Wedding Cakes, Birthday Cakes, Cupcakes, Donuts and Pastries from Baked with a Smile Bakery in Cape Town. Click any image to view it bigger.">
+<meta name="keywords" content="cake gallery Cape Town, wedding cake photos, birthday cake designs, cupcake gallery, bakery gallery">
+<meta name="author" content="Baked with a Smile Bakery">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery | Cake Photos & Bakery Gallery | Baked with a Smile">
+<meta property="og:description" content="View our gallery of Wedding Cakes, Birthday Cakes, Cupcakes, Donuts and more in Cape Town.">
+<meta property="og:image" content="images/weddingcake.jpg">
+<link rel="canonical" href="https://bakedwithasmile.netlify.app/gallery.html"> 
+<link rel="stylesheet" href="css/mystyle.css">
 </head>
 <body>
 
 <header class="nav">
 <h2>Baked with a Smile</h2>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
 <nav>
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="aboutus.html">About Us</a></li>
 <li><a href="products.html">Products</a></li>
 <li><a href="gallery.html">Gallery</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
 <li><a href="contactus.html">Contact Us</a></li>
 </ul>
 </nav>
 </header>
 
+<main>
 <h1 style="text-align:center; padding:2rem;">Gallery</h1>
-<p style="text-align:center;">Take a look at some of our delicious creations!</p>
+<p style="text-align:center;">Take a look at some of our delicious creations! Click any image to view it bigger.</p>
+
+
+<div style="text-align:center; margin:1.5rem 0;">
+<button class="filter-btn active" data-filter="all" style="padding:8px 16px; margin:5px; cursor:pointer; border-radius:20px; border:1px solid #5D4037; background:#5D4037; color:white;">All</button>
+<button class="filter-btn" data-filter="cakes" style="padding:8px 16px; margin:5px; cursor:pointer; border-radius:20px; border:1px solid #5D4037; background:white;">Cakes</button>
+<button class="filter-btn" data-filter="cupcakes" style="padding:8px 16px; margin:5px; cursor:pointer; border-radius:20px; border:1px solid #5D4037; background:white;">Cupcakes</button>
+<button class="filter-btn" data-filter="donuts" style="padding:8px 16px; margin:5px; cursor:pointer; border-radius:20px; border:1px solid #5D4037; background:white;">Donuts</button>
+<button class="filter-btn" data-filter="pastries" style="padding:8px 16px; margin:5px; cursor:pointer; border-radius:20px; border:1px solid #5D4037; background:white;">Pastries</button>
+</div>
 
 <h2 style="padding-left:5%;">Cakes</h2>
-<div class="products-grid">
-<div class="product-card"><img src="images/weddingcake.jpg" alt="Cake"><p>Wedding Cake</p></div>
-<div class="product-card"><img src="images/birthdaycake.jpg" alt="Cake"><p>Birthday Cake</p></div>
-<div class="product-card"><img src="images/cakes.jpg" alt="Cake"><p>Assorted Cakes</p></div>
-<div class="product-card"><img src="images/cupcake.jpg" alt="Cupcake"><p>Cupcakes</p></div>
-<div class="product-card"><img src="images/moredonuts.jpg" alt="Donuts"><p>Donuts</p></div>
-<div class="product-card"><img src="images/pastries.jpg" alt="Pastries"><p>Pastries</p></div>
-</div>
-<footer>
-    <p>&copy; 2026 Baked with a Smile Bakery. All rights reserved.</p>
-    <p>Freshly baked with love for every occasion.</p>
-</footer>
-</body>
-</html>
 
+<div class="products-grid" id="gallery-grid">
+
+<div class="product-card gallery-item" data-category="cakes">
+<img class="gallery-img" src="images/weddingcake.jpg" alt="Elegant white wedding cake with flowers from Baked with a Smile" data-title="Wedding Cake - R2000" data-category="cakes" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Wedding Cake</p>
+</div>
+
+<div class="product-card gallery-item" data-category="cakes">
+<img class="gallery-img" src="images/birthdaycake.jpg" alt="Colourful birthday cake with candles" data-title="Birthday Cake - R1500" data-category="cakes" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Birthday Cake</p>
+</div>
+
+<div class="product-card gallery-item" data-category="cakes">
+<img class="gallery-img" src="images/cakes.jpg" alt="Assorted celebration cakes" data-title="Any Cake - R1000" data-category="cakes" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Assorted Cakes</p>
+</div>
+
+<div class="product-card gallery-item" data-category="cupcakes">
+<img class="gallery-img" src="images/cupcake.jpg" alt="Fresh cupcakes with swirl icing" data-title="Cupcakes - R20 each / 6 for R100" data-category="cupcakes" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Cupcakes</p>
+</div>
+
+<div class="product-card gallery-item" data-category="donuts">
+<img class="gallery-img" src="images/moredonuts.jpg" alt="Glazed donuts with sprinkles" data-title="Donuts - R20 each / 6 for R100" data-category="donuts" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Donuts</p>
+</div>
+
+<div class="product-card gallery-item" data-category="pastries">
+<img class="gallery-img" src="images/pastries.jpg" alt="Fresh pastries and croissants" data-title="Pastries - From R25" data-category="pastries" style="height:250px; object-fit:cover; width:100%; cursor:pointer; border-radius:8px;">
+<p>Pastries</p>
+</div>
+
+</div>
+
+
+<p style="text-align:center; margin:2rem 0; color:#666;">Love what you see? <a href="enquiry.html" style="color:#5D4037; font-weight:bold;">Order yours here &rarr;</a></p>
+</main>
+
+
+
+
+<footer>
+<p>&copy; <span id="year">2026</span> Baked with a Smile Bakery. All rights reserved.</p>
+<p>Freshly baked with love for every occasion.</p>
+<p><a href="index.html">Home</a> | <a href="aboutus.html">About</a> | <a href="products.html">Products</a> | <a href="gallery.html">Gallery</a> | <a href="enquiry.html">Enquiry</a> | <a href="contactus.html">Contact Us</a></p>
+</footer>
+
+
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; flex-direction:column;">
+<span id="lightbox-close" style="position:absolute; top:15px; right:25px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+<span id="lightbox-prev" style="position:absolute; left:15px; color:white; font-size:40px; cursor:pointer;">&#10094;</span>
+<img id="lightbox-img" src="" alt="Gallery image enlarged" style="max-width:90%; max-height:80%; border-radius:8px;">
+<p id="lightbox-caption" style="color:white; margin-top:10px;"></p>
+<span id="lightbox-next" style="position:absolute; right:15px; color:white; font-size:40px; cursor:pointer;">&#10095;</span>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var imgs = document.querySelectorAll('.gallery-grid img, .gallery img, main img');
+var box = document.getElementById('lightbox');
+var big = document.getElementById('lightbox-img');
+var cap = document.getElementById('lightbox-caption');
+var idx = 0;
+function show(i) {
+idx = (i + imgs.length) % imgs.length;
+big.src = imgs[idx].src;
+cap.textContent = imgs[idx].alt || 'Baked with a Smile - Cape Town Bakery';
+}
+imgs.forEach(function(img, i) {
+img.style.cursor = 'pointer';
+img.addEventListener('click', function() { show(i); box.style.display = 'flex'; });
+});
+document.getElementById('lightbox-close').onclick = function() { box.style.display = 'none'; };
+document.getElementById('lightbox-prev').onclick = function(e) { e.stopPropagation(); show(idx - 1); };
+document.getElementById('lightbox-next').onclick = function(e) { e.stopPropagation(); show(idx + 1); };
+box.addEventListener('click', function(e) { if (e.target === box) box.style.display = 'none'; });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') box.style.display = 'none'; });
+});
+var filterBtns = document.querySelectorAll('.filter-btn');
+var items = document.querySelectorAll('.gallery-item');
+filterBtns.forEach(function(btn){
+btn.addEventListener('click', function(){
+filterBtns.forEach(function(b){ b.classList.remove('active'); });
+btn.classList.add('active');
+var f = btn.getAttribute('data-filter');
+items.forEach(function(item){
+item.style.display = (f === 'all' || item.getAttribute('data-category') === f) ? '' : 'none';
+});
+});
+});
+
+</script>
+
+
+<script src="js/script.js"></script>
+</body>
+</html> 

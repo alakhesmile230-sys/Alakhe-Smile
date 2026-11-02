@@ -4,15 +4,22 @@
 <link rel="stylesheet" href="css/mystyle.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enquire & Order Cakes | Baked with a Smile Bakery Mossel Bay</title>
-<meta name="description" content="Enquire about Any Cake R1000, Birthday Cake R1500, Wedding Cake R2000, Cupcakes, Donuts, Cookies, Croissants and Bread at Baked with a Smile Bakery in Mossel Bay.">
-<meta name="keywords" content="order cake Mossel Bay, enquiry bakery, birthday cake order, wedding cake quote, Baked with a Smile">
-<link rel="stylesheet" href="css/mystyle.css">
+<title>Enquire & Order Cakes | Baked with a Smile Bakery in Cape Town</title>
+<meta name="description" content="Enquire about Any Cake R1000, Birthday Cake R1500, Wedding Cake R2000, Cupcakes, Donuts, Cookies, Croissants and Bread at Baked with a Smile Bakery in Cape Town.">
+<meta name="keywords" content="order cake Cape Town , enquiry bakery, birthday cake order, wedding cake quote, Baked with a Smile"> 
+<meta name="author" content="Alakhe ST10538125 - Baked with a Smile Bakery">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Enquire & Order a Cake | Baked with a Smile Bakery Cape Town">
+<meta property="og:description" content="Enquire about Any Cake R1000, Birthday Cake R1500, Wedding Cake order, delivery in Cape Town.">
+<meta property="og:image" content="images/front.jpg">
+<link rel="canonical" href="https://bakedwithasmile.netlify.app/enquiry.html"> 
 </head>
-<body>
+<body> 
 
 <header class="nav">
 <h2>Baked with a Smile</h2>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
 <nav>
 <ul>
 <li><a href="index.html">Home</a></li>
@@ -22,8 +29,9 @@
 <li><a href="enquiry.html">Enquiry</a></li>
 <li><a href="contactus.html">Contact Us</a></li>
 </ul>
+</nav> 
 </nav>
-</header>
+</header> 
 
 <main>
 <section class="enquiry-hero">
@@ -63,6 +71,7 @@
 <label for="enquiry-qty">Quantity *</label>
 <input type="number" id="enquiry-qty" min="1" max="100" value="1" required>
 <span class="error" id="err-qty"></span>
+<p id="enquiry-total" style="background:#fff3e0; padding:12px; border-radius:8px; font-weight:bold; margin:15px 0;">Estimated Total: R0 — select a product and quantity</p>
 
 <label for="enquiry-date">Date Needed *</label>
 <input type="date" id="enquiry-date" required>
@@ -76,6 +85,29 @@
 <option value="Gluten-Free">Gluten-Free</option>
 <option value="Vegan">Vegan</option>
 </select>
+
+<fieldset style="border:1px solid #ddd; border-radius:8px; padding:12px; margin:15px 0;">
+<legend style="font-weight:bold; padding:0 5px;">How would you like to receive your order? *</legend>
+
+<div style="display:flex; align-items:center; gap:10px; margin:8px 0;">
+<input type="radio" id="pickup" name="delivery" value="Pickup - Free" checked style="width:18px; height:18px; margin:0;">
+<label for="pickup" style="margin:0; font-weight:normal; cursor:pointer;">Pickup - Free (Cape Town)</label>
+</div>
+
+<div style="display:flex; align-items:center; gap:10px; margin:8px 0;">
+<input type="radio" id="delivery" name="delivery" value="Delivery - R80" style="width:18px; height:18px; margin:0;">
+<label for="delivery" style="margin:0; font-weight:normal; cursor:pointer;">Delivery - R80 (Cape Town)</label>
+</div>
+
+</fieldset>
+<span class="error" id="err-delivery"></span>
+
+<div style="display:flex; align-items:center; gap:10px; margin:10px 0;">
+<input type="checkbox" id="enquiry-terms" name="terms" required style="width:18px; height:18px; margin:0;">
+<label for="enquiry-terms" style="margin:0; font-weight:normal; cursor:pointer;">I agree to the bakery terms *</label>
+</div>
+<span class="error" id="err-terms"></span> 
+
 
 <label for="enquiry-message">Message / Cake Design Details</label>
 <textarea id="enquiry-message" rows="4" placeholder="e.g. Pink birthday cake for 10 people, with name 'Lerato' on top..."></textarea>
@@ -94,6 +126,115 @@
 <p><a href="index.html">Home</a> | <a href="aboutus.html">About</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="contactus.html">Contact</a></p>
 </footer>
 
-<script src="js/script.js"></script>
-</body>
-</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var form = document.getElementById('enquiry-form');
+var resultDiv = document.getElementById('enquiry-result');
+var yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+var prices = {
+"Any Cake": 1000,
+"Birthday Cake": 1500,
+"Wedding Cake": 2000,
+"Cupcake": 20,
+"Donut": 20,
+"Cookie": 10,
+"Croissant": 25,
+"White Loaf": 30,
+"Brown Loaf": 35,
+"Fresh Daily Bread": 35
+};
+
+function showErr(id, msg) {
+var el = document.getElementById(id);
+if (el) { el.textContent = msg; el.style.color = "red"; }
+}
+function clearErrs() {
+["err-name","err-email","err-phone","err-service","err-qty","err-date","err-delivery","err-terms"].forEach(function(id){
+var el = document.getElementById(id);
+if (el) el.textContent = "";
+});
+if (resultDiv) { resultDiv.style.display = "none"; resultDiv.innerHTML = ""; }
+}
+var serviceEl = document.getElementById('enquiry-service');
+var qtyEl = document.getElementById('enquiry-qty');
+var totalEl = document.getElementById('enquiry-total');
+function updateTotal() {
+var price = prices[serviceEl.value] || 0;
+var q = parseInt(qtyEl.value, 10) || 0;
+var deliveryCost = 0;
+var del = document.querySelector('input[name="delivery"]:checked');
+if (del && del.value.includes('Delivery')) deliveryCost = 80;
+var total = (price * q) + deliveryCost;
+if (totalEl) totalEl.textContent = 'Estimated Total: R' + total + (price ? ' (' + serviceEl.value + ' R' + price + ' x ' + q + (deliveryCost ? ' + Delivery R80' : ' + Pickup Free') + ')' : ' — select a product and quantity');
+}
+if (serviceEl) serviceEl.addEventListener('change', updateTotal);
+if (qtyEl) qtyEl.addEventListener('input', updateTotal);
+document.querySelectorAll('input[name="delivery"]').forEach(function(r){ r.addEventListener('change', updateTotal); });
+updateTotal();
+
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+clearErrs();
+var valid = true;
+
+var name = document.getElementById('enquiry-name').value.trim();
+var email = document.getElementById('enquiry-email').value.trim();
+var phone = document.getElementById('enquiry-phone').value.trim();
+var service = document.getElementById('enquiry-service').value;
+var qty = parseInt(document.getElementById('enquiry-qty').value, 10);
+var dateVal = document.getElementById('enquiry-date').value;
+var diet = document.getElementById('enquiry-diet').value;
+var message = document.getElementById('enquiry-message').value.trim();
+var deliveryEl = document.querySelector('input[name="delivery"]:checked');
+var delivery = deliveryEl ? deliveryEl.value : "";
+var terms = document.getElementById('enquiry-terms').checked;
+
+
+if (name.length < 2) { showErr("err-name", "Please enter your full name (at least 2 letters)."); valid = false; }
+// 2. Email
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr("err-email", "Please enter a valid email, e.g. you@example.com"); valid = false; }
+// 3. Phone - 10 digits starting with 0
+if (!/^0\d{9}$/.test(phone)) { showErr("err-phone", "Phone must be 10 digits starting with 0, e.g. 0821234567"); valid = false; }
+// 4. Service
+if (!service) { showErr("err-service", "Please choose a cake / product."); valid = false; }
+
+if (isNaN(qty) || qty < 1 || qty > 100) { showErr("err-qty", "Quantity must be between 1 and 100."); valid = false; }
+if (!dateVal) { showErr("err-date", "Please choose a date needed."); valid = false; }
+else {
+var picked = new Date(dateVal + "T00:00:00");
+var today = new Date(); today.setHours(0,0,0,0);
+if (picked < today) { showErr("err-date", "Date cannot be in the past. Please choose today or a future date."); valid = false; }
+}
+
+if (!terms) { showErr("err-terms", "Please agree to the terms to continue."); valid = false; }
+
+if (!valid) return;
+
+
+var unit = prices[service] || 0;
+var subtotal = unit * qty;
+var deliveryCost = (delivery.indexOf("Delivery") !== -1) ? 80 : 0;
+var total = subtotal + deliveryCost;
+
+resultDiv.style.display = "block";
+resultDiv.style.background = "#e8f5e9";
+resultDiv.style.border = "2px solid #4caf50";
+resultDiv.style.padding = "16px";
+resultDiv.style.borderRadius = "8px";
+resultDiv.innerHTML =
+"<h3 style='margin:0 0 8px;color:#2e7d32;'>✅ Thank you, " + name + "! Enquiry received.</h3>" +
+"<p style='margin:4px 0;'><strong>Product:</strong> " + service + " x " + qty + " @ R" + unit + " = R" + subtotal + "</p>" +
+"<p style='margin:4px 0;'><strong>Delivery:</strong> " + delivery + (deliveryCost ? " - R80" : " ") + "</p>" + 
+(diet && diet !== "None" ? "<p style='margin:4px 0;'><strong>Dietary:</strong> " + diet + "</p>" : "") +
+"<p style='margin:4px 0;'><strong>Date Needed:</strong> " + dateVal + "</p>" +
+(message ? "<p style='margin:4px 0;'><strong>Message:</strong> " + message + "</p>" : "") +
+"<h3 style='margin:10px 0 0;'>Estimated Total: R" + total + "</h3>" +
+"<p style='margin:6px 0 0;'>We will confirm on " + email + " / " + phone + " within 24 hours.</p>";
+resultDiv.scrollIntoView({ behavior: "smooth" });
+});
+
+form.addEventListener('input', function() { clearErrs(); });
+});
+</script>

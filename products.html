@@ -1,106 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <link rel="stylesheet" href="css/mystyle.css">   
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products & Prices | Baked with a Smile Bakery Mossel Bay</title>
-<meta name="description" content="Cakes, cupcakes, donuts, cookies, croissants and bread prices at Baked with a Smile Bakery Mossel Bay. Any Cake R1000, Birthday Cake R1500, Wedding Cake R2000.">
-<meta name="keywords" content="bakery prices Mossel Bay, birthday cake price, wedding cake price, cupcakes, donuts, Baked with a Smile">
-<link rel="stylesheet" href="css/mystyle.css">
+<title>Our Products | Baked with a Smile Bakery in Cape Town</title>
+<meta name="description" content="Shop cakes, cupcakes, donuts, cookies, croissants and fresh bread from Baked with a Smile Bakery in Cape Town. Wedding Cake R2000, Birthday Cake R1500, Cupcakes R20.">
+<meta name="keywords" content="buy cake Cape Town, wedding cake price, birthday cake, cupcakes, donuts, cookies, fresh bread Cape Town">
+<meta name="author" content="Baked with a Smile Bakery">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Our Products | Custom Cakes, Cupcakes & Treats | Baked with a Smile">
+<meta property="og:description" content="Shop cakes, cupcakes, donuts, cookies, croissants and fresh bread in Cape Town. Order online.">
+<meta property="og:image" content="images/donuts.jpg">
+<link rel="canonical" href="https://bakedwithasmile.netlify.app/products.html">
+<link rel="stylesheet" href="css/mystyle.css"> 
+<style>
+footer {
+background: #6D4C41 !important;
+padding: 2rem 1rem !important;
+margin-top: 2rem !important;
+text-align: center !important;
+}
+footer, footer *, footer p, footer span {
+color: #FFFFFF !important;
+opacity: 1 !important;
+text-decoration: none !important;
+}
+footer a, footer a:visited, footer a:active {
+color: #FFFFFF !important;
+text-decoration: none !important;
+font-weight: 600 !important;
+}
+footer a:hover {
+color: #FFCCBC !important;
+text-decoration: underline !important;
+}
+main {
+text-align: center !important;
+}
+.product-controls {
+display: flex !important;
+justify-content: center !important;
+align-items: center !important;
+gap: 0.5rem !important;
+flex-wrap: wrap !important;
+margin: 1.5rem auto !important;
+max-width: 900px !important;
+}
+.product-controls input {
+padding: 0.6rem 0.8rem !important;
+border: 1px solid #D7CCC8 !important;
+border-radius: 4px !important; 
+width: 220px !important;
+}
+.product-controls select {
+padding: 0.6rem 0.5rem !important;
+border: 1px solid #D7CCC8 !important;
+border-radius: 4px !important;
+background: white !important;
+}
+.products-grid, #products-grid {
+display: grid !important;
+grid-template-columns: repeat(3, 1fr) !important;
+gap: 1.5rem !important;
+max-width: 1100px !important;
+margin: 0 auto !important;
+padding: 0 1rem !important;
+}
+.nav {
+display: flex !important;
+flex-direction: row !important;
+align-items: center !important;
+justify-content: space-between !important;
+flex-wrap: wrap !important;
+}
+.nav nav ul {
+display: flex !important;
+flex-direction: row !important;
+gap: 20px !important;
+list-style: none !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+.hamburger {
+display: none !important;
+}
+@media (max-width: 768px) {
+.hamburger { display: block !important; }
+.nav nav ul {
+display: none !important;
+flex-direction: column !important;
+width: 100% !important;
+}
+.nav nav ul.show { display: flex !important; }
+}
+
+</style>
+
 </head>
 <body>
+
 <header class="nav">
 <h2>Baked with a Smile</h2>
-<nav><ul>
+<button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
+<nav>
+<ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="aboutus.html">About Us</a></li>
 <li><a href="products.html">Products</a></li>
 <li><a href="gallery.html">Gallery</a></li>
 <li><a href="enquiry.html">Enquiry</a></li>
-<li><a href="contactus.html">Contact Us</a></li>
-</ul></nav>
+<li><a href="contactus.html">Contact Us</a></li> 
+</ul>
+</nav>
 </header>
 
 <main>
-<h1 class="page-title">Our Products</h1>
+<h1 style="text-align:center; padding:2rem 1rem 0.5rem;">Our Products</h1>
+<p style="text-align:center; color:#666;">Freshly baked every morning in Cape Town. Click Enquire to order.</p>
 
-<!-- PART 3: SEARCH + FILTER - 5 marks -->
-<div class="search-bar">
-<input type="search" id="service-search" placeholder="Search cakes, cupcakes, bread...">
-<select id="service-filter">
+
+<div class="product-controls"> 
+<input type="search" id="product-search" placeholder="Search cakes, cupcakes, bread..." aria-label="Search products" style="padding:10px; width:260px; max-width:100%; border:1px solid #ccc; border-radius:5px;">
+<select id="product-filter" aria-label="Filter by category" style="padding:10px; border:1px solid #ccc; border-radius:5px;">
 <option value="all">All Products</option>
 <option value="cakes">Cakes</option>
-<option value="cupcakes">Cupcakes & Donuts</option>
-<option value="pastries">Pastries & Bread</option>
+<option value="cupcakes">Cupcakes</option>
+<option value="donuts">Donuts</option>
+<option value="cookies">Cookies</option>
+<option value="pastries">Pastries / Bread</option>
+</select>
+<select id="product-sort" aria-label="Sort products" style="padding:10px; border:1px solid #ccc; border-radius:5px;">
+<option value="default">Sort: Featured</option>
+<option value="price-low">Price: Low to High</option>
+<option value="price-high">Price: High to Low</option>
+<option value="name-az">Name: A to Z</option>
 </select>
 </div>
 
-<h2 class="section-title">Cakes</h2>
-<div class="products-grid" id="services-grid">
-<div class="product-card" data-category="cakes" data-name="Any Cake">
-<img src="images/cakes.jpg" alt="Any celebration cake from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Any Cake</b> - R1000</p>
+<p id="product-count" style="text-align:center; color:#666; margin-bottom:1rem;">Showing 9 products</p> 
+<p id="no-results" style="display:none; text-align:center; padding:2rem; font-weight:bold;">No products found. Try a different search.</p>
+
+<div class="products-grid" id="products-grid">
+
+<div class="product-card product-item" data-name="Any Cake" data-category="cakes" data-price="1000">
+<img src="images/cakes.jpg" alt="Any Cake - R1000, any flavour any occasion" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Any Cake - R1000</h3>
 <p>Any flavour, any occasion.</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
-<div class="product-card" data-category="cakes" data-name="Birthday Cake">
-<img src="images/birthdaycake.jpg" alt="Birthday cake from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Birthday Cake</b> - R1500</p>
+
+<div class="product-card product-item" data-name="Birthday Cake" data-category="cakes" data-price="1500">
+<img src="images/birthdaycake.jpg" alt="Birthday Cake - R1500, custom birthday cake made to order" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Birthday Cake - R1500</h3>
 <p>Custom birthday cake made to order.</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
-<div class="product-card" data-category="cakes" data-name="Wedding Cake">
-<img src="images/weddingcake.jpg" alt="Wedding cake from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Wedding Cake</b> - R2000</p>
+
+<div class="product-card product-item" data-name="Wedding Cake" data-category="cakes" data-price="2000">
+<img src="images/weddingcake.jpg" alt="Wedding Cake - R2000, elegant wedding cake made to your design" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Wedding Cake - R2000</h3>
 <p>Elegant wedding cake, made to your design.</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
 
-<div class="product-card" data-category="cupcakes" data-name="Cupcake">
-<img src="images/cupcake.jpg" alt="Cupcakes from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Cupcake</b> - R20 each</p>
-<p><b>6 for</b> - R100</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
-</div>
-<div class="product-card" data-category="cupcakes" data-name="Donut">
-<img src="images/moredonuts.jpg" alt="Donuts from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Donut</b> - R20 each</p>
-<p><b>6 for</b> - R100</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
-</div>
-<div class="product-card" data-category="cupcakes" data-name="Cookie">
-<img src="images/cookie.jpg" alt="Cookies from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Cookie</b> - R10</p>
-<p><b>5 for</b> - R45</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<div class="product-card product-item" data-name="Cupcake" data-category="cupcakes" data-price="20">
+<img src="images/cupcake.jpg" alt="Cupcake - R20 each, 6 for R100" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Cupcake - R20 each</h3>
+<p>6 for - R100</p>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
 
-<div class="product-card" data-category="pastries" data-name="Croissant">
-<img src="images/pastries.jpg" alt="Croissants from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Croissant</b> - R25</p>
-<p><b>5 for</b> - R100</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<div class="product-card product-item" data-name="Donut" data-category="donuts" data-price="20">
+<img src="images/moredonuts.jpg" alt="Donut - R20 each, 6 for R100" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Donut - R20 each</h3>
+<p>6 for - R100</p>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
-<div class="product-card" data-category="pastries" data-name="Fresh Daily Bread">
-<img src="images/bread.jpg" alt="Fresh daily bread from Baked with a Smile Bakery in Mossel Bay">
-<p><b>Fresh Daily Bread</b> - R35</p>
+
+<div class="product-card product-item" data-name="Cookie" data-category="cookies" data-price="10">
+<img src="images/cookie.jpg" alt="Cookie - R10 each, 5 for R45" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Cookie - R10</h3>
+<p>5 for - R45</p>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
+</div>
+
+<div class="product-card product-item" data-name="Croissant" data-category="pastries" data-price="25">
+<img src="images/pastries.jpg" alt="Croissant - R25, 5 for R100" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Croissant - R25</h3>
+<p>5 for - R100</p>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
+</div>
+
+<div class="product-card product-item" data-name="Fresh Daily Bread" data-category="pastries" data-price="30-35">
+<img src="images/bread.jpg" alt="Fresh Daily Bread , baked fresh every morning" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Fresh Daily Bread - R35</h3>
 <p>Baked fresh every morning.</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
-<div class="product-card" data-category="pastries" data-name="White Loaf Brown Loaf">
-<img src="images/bw.jpg" alt="White loaf and brown loaf bread from Baked with a Smile Bakery in Mossel Bay">
-<p><b>White Loaf</b> - R30</p>
-<p><b>Brown Loaf</b> - R35</p>
-<a href="enquiry.html"><button type="button">Enquire</button></a>
+
+<div class="product-card product-item" data-name="White Loaf" data-category="pastries" data-price="30">
+<img src="images/bw.jpg" alt="Brown Loaf - R35, White Loaf - R30" style="height:220px; object-fit:cover; width:100%; border-radius:8px;">
+<h3>Loaf</h3>
+<p>Brown Loaf - R35</p>
+</p>White Loaf - R30</p>
+
+<a href="enquiry.html"><button type="button" style="background:#5D4037; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Enquire</button></a>
 </div>
+
 </div>
+
+</select>
+</div>
+<p id="no-results" style="display:none; text-align:center;">No products found. Try another search.</p>
+
+
+</div>
+
+<p style="text-align:center; margin:2rem 0; color:#666;">Can't find what you're looking for? <a href="enquiry.html" style="color:#5D4037; font-weight:bold;">Send us a custom order &rarr;</a></p>
 </main>
 
 <footer>
 <p>&copy; <span id="year">2026</span> Baked with a Smile Bakery. All rights reserved.</p>
-<p><a href="index.html">Home</a> | <a href="products.html">Products</a> | <a href="enquiry.html">Enquiry</a> | <a href="contactus.html">Contact</a></p>
+<p>Freshly baked with love for every occasion.</p>
+<p><a href="index.html">Home</a> | <a href="aboutus.html">About</a> | <a href="products.html">Products</a> | <a href="gallery.html">Gallery</a> | <a href="enquiry.html">Enquiry</a> | <a href="contactus.html">Contact Us</a></p>
 </footer>
+
 <script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var grid = document.querySelector('.products-grid');
+// Find controls - works with EITHER naming: search OR product-search
+var search = document.getElementById('search') || document.getElementById('product-search');
+var sort = document.getElementById('sort') || document.getElementById('product-sort');
+var cat = document.getElementById('filter-cat') || document.getElementById('product-filter');
+var noResults = document.getElementById('no-results');
+
+if (!grid) return;
+var cards = Array.from(grid.querySelectorAll('.product-card'));
+
+// Give each card a price + name for sorting
+cards.forEach(function(c) {
+var priceText = c.textContent.match(/R(\d+)/);
+c.dataset.price = priceText ? parseInt(priceText[1]) : 0;
+var h3 = c.querySelector('h3');
+c.dataset.name = h3 ? h3.textContent : c.textContent;
+});
+
+function apply() {
+var q = search ? search.value.toLowerCase() : '';
+var catVal = cat ? cat.value.toLowerCase() : 'all';
+var sortVal = sort ? sort.value : '';
+
+var visible = [];
+cards.forEach(function(c) {
+var text = c.textContent.toLowerCase();
+var matchQ = text.includes(q);
+// Filter: check BOTH data-category AND text, so "bread" finds "White Loaf" even if data-category is wrong
+var matchCat = (catVal === 'all' || catVal === '' || text.includes(catVal) || c.dataset.category === catVal);
+var show = matchQ && matchCat;
+c.style.display = show ? '' : 'none';
+if (show) visible.push(c);
+});
+
+if (noResults) noResults.style.display = visible.length === 0 ? 'block' : 'none';
+
+if (sortVal === 'low') visible.sort(function(a,b){ return a.dataset.price - b.dataset.price; });
+if (sortVal === 'high') visible.sort(function(a,b){ return b.dataset.price - a.dataset.price; });
+if (sortVal === 'name') visible.sort(function(a,b){ return a.dataset.name.localeCompare(b.dataset.name); });
+visible.forEach(function(c){ grid.appendChild(c); });
+}
+
+if (search) search.addEventListener('input', apply);
+if (sort) sort.addEventListener('change', apply);
+if (cat) cat.addEventListener('change', apply);
+});
+</script>
+
 </body>
 </html>
